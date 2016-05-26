@@ -1,0 +1,40 @@
+<h2>Create a new person</h2>
+
+<%= form_for(@person) do |f| %>
+  <p>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </p>
+  <br>
+  Addresses:
+  <ol>
+    <%= f.fields_for :addresses do |a| %>
+      <li>
+        <p>
+          <%= a.label :kind %><br>
+          <%= a.text_field :kind %>
+        </p>
+        <p>
+          <%= a.label :street_address %><br>
+          <%= a.text_field :street_address %>
+        </p>
+        <p>
+          <%= a.label :city %><br>
+          <%= a.text_field :city %>
+        </p>
+        <p>
+          <%= a.label :state %><br>
+          <%= a.text_field :state %>
+        </p>
+        <p>
+          <%= a.label :zip %><br>
+          <%= a.text_field :zip %>
+        </p>
+        <%= a.hidden_field :person_id, :value => @person.id %>
+      </li>
+    <% end %>
+  </ol>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
