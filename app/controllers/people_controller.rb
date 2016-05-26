@@ -9,10 +9,18 @@ class PeopleController < ApplicationController
   end
 
   def create
+    p params
     @person = Person.new(person_params)
-    # @person.addresses.person_id = @person.id
     if @person.save
-      # @person.address
+      new_addresses = params["person"]["addresses_attributes"]
+      p '+++++++++'
+      p new_addresses
+      p '+++++++++'
+      @person.addresses = new_addresses.each do |address|
+        p address.value
+        Address.create(address)
+      end
+
       redirect_to people_path
     else
       render :new
