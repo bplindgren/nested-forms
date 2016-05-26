@@ -11,26 +11,25 @@
     <%= f.fields_for :addresses do |a| %>
       <li>
         <p>
-          <%= a.label :kind %><br>
+          <%= a.label :kind %>
           <%= a.text_field :kind %>
         </p>
         <p>
-          <%= a.label :street_address %><br>
+          <%= a.label :street_address %>
           <%= a.text_field :street_address %>
         </p>
         <p>
-          <%= a.label :city %><br>
+          <%= a.label :city %>
           <%= a.text_field :city %>
         </p>
         <p>
-          <%= a.label :state %><br>
+          <%= a.label :state %>
           <%= a.text_field :state %>
         </p>
         <p>
-          <%= a.label :zip %><br>
+          <%= a.label :zip %>
           <%= a.text_field :zip %>
         </p>
-        <%= a.hidden_field :person_id, :value => 1 %>
       </li>
     <% end %>
   </ol>
